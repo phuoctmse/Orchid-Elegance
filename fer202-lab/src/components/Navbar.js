@@ -28,8 +28,8 @@ const Navbar = () => {
             <nav>
                 <CustomLink href='/' title='Home' className='mr-4' />
                 <CustomLink href='/about' title='About' className='mx-4' />
-                <CustomLink href='/article' title='Article' className='mx-4' />
-                <CustomLink href='/contact' title='Contact' className='ml-4' />
+                <CustomLink href='/product' title='Product' className='mx-4' />
+                <CustomLink href='/article' title='Article' className='ml-4' />
             </nav>
 
             <nav className='flex items-center justify-center flex-wrap'>
