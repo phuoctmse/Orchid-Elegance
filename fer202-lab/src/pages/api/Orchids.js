@@ -22,3 +22,32 @@ export const fetchOrchidById = async (id) => {
     throw error;
   }
 };
+
+export const createOrchid = async (orchid) => {
+  try {
+    const response = await axios.post(API_URL, orchid);
+    return response.data;
+  } catch (error) {
+    console.error('Error creating orchid:', error);
+    throw error;
+  }
+};
+
+export const updateOrchid = async (id, updatedOrchid) => {
+  try {
+    const response = await axios.put(`${API_URL}/${id}`, updatedOrchid);
+    return response.data;
+  } catch (error) {
+    console.error(`Error updating orchid with id ${id}:`, error);
+    throw error;
+  }
+};
+
+export const deleteOrchid = async (id) => {
+  try {
+    await axios.delete(`${API_URL}/${id}`);
+  } catch (error) {
+    console.error(`Error deleting orchid with id ${id}:`, error);
+    throw error;
+  }
+};

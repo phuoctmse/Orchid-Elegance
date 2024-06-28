@@ -8,7 +8,6 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { GithubIcon } from '@/components/Icons';
 
-
 const ProductDetail = () => {
     const router = useRouter();
     const { id } = router.query;
@@ -38,62 +37,6 @@ const ProductDetail = () => {
         return stars;
     };
 
-    const Orchids = ({ id, isSpecial, name, image, category, rating, color, country, description }) => {
-        return (
-            <div className='container mx-auto lg:px-12 md:px-8 px-4 bg-light py-10'>
-                <div className='card bg-white p-4 rounded-lg
-                flex md:flex-row flex-col gap-5
-                '>
-                    <div className='image my-auto'>
-                        <img src={image} alt={name} className='w-full h-96 object-cover rounded-lg' />
-                    </div>
-                    <div className='other'>
-                        <div className='tag'>
-                            <ul className='flex gap-3'>
-                                <li className='border-2 border-solid
-                                     border-blue-200 text-sm rounded-full px-3 py-[2px]'>
-                                    {color}
-                                </li>
-                                <li className='border-2 border-solid
-                                     border-blue-200 text-sm rounded-full px-3 py-[2px]'>
-                                    {country}
-                                </li><li className='border-2 border-solid
-                                     border-blue-200 text-sm rounded-full px-3 py-[2px]'>
-                                    {category}
-                                </li>
-                            </ul>
-
-                        </div>
-                        <div className='head py-2'>
-                            <h3 className='font-bold text-3xl'>{name}</h3>
-                            <div className='flex items-center mt-1'>
-                                    {renderStars(orchid.rating)}
-                                    <p className='ml-2 text-gray-500'>{orchid.rating} stars</p>
-                                </div>
-                            <p className='py-1 text-sm text-gray-500'>{description}</p>
-                        </div>
-                        <div className='button flex py-3'>
-                            <button
-                                onClick={handleBack}
-                                className='bg-indigo-600 text-white px-4 py-2 rounded-lg mr-4'
-                            >
-                                Back to Products
-                            </button>
-                            <a
-                                href={image}
-                                target='_blank'
-                                rel='noopener noreferrer'
-                                className='bg-gray-200 text-gray-800 px-4 py-2 rounded-lg'
-                            >
-                                Read More
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        );
-    };
-
     useEffect(() => {
         const getOrchid = async () => {
             if (id) {
@@ -120,21 +63,44 @@ const ProductDetail = () => {
                 <meta name="description" content={`Details about ${orchid.name}`} />
             </Head>
             <main className='w-full mb-16 flex flex-col items-center justify-center'>
-                <Layout className='pt-16'>
-                    <AnimatedText text="Typical Orchids" className='mb-10' />
-                    <div className='grid grid-cols-12 gap-24'>
-                        <div className='col-span-12'>
-                            <Orchids
-                                id={orchid.id}
-                                isSpecial={orchid.isSpecial}
-                                name={orchid.name}
-                                description={orchid.description}
-                                image={orchid.image}
-                                category={orchid.category}
-                                rating={orchid.rating}
-                                color={orchid.color}
-                                country={orchid.origin}
-                            />
+                <Layout className='sm:pt-16'>
+                    <AnimatedText text="Typical Orchids" className='mb-16 lg:!text-7xl sm:!text-6xl xs:!text-4xl sm:mb-8' />
+                    <div className='container mx-auto px-4 sm:px-8 md:px-12 lg:px-16 xl:px-20 2xl:px-24 py-10'>
+                        <div className='bg-white p-6 rounded-xl shadow-lg transform hover:scale-105 transition duration-500 flex flex-col md:flex-row md:flex-row-reverse gap-6'>
+                            <div className='relative w-full h-96 sm:h-auto md:w-1/2'>
+                                <Image src={orchid.image} layout="fill" objectFit="cover" alt={orchid.name} className='rounded-xl' />
+                            </div>
+                            <div className='flex flex-col justify-between w-full md:w-1/2'>
+                                <div>
+                                    <h3 className='text-2xl font-bold text-indigo-600 mb-2'>{orchid.category}</h3>
+                                    <h1 className='text-3xl font-bold text-gray-800 mb-4'>{orchid.name}</h1>
+                                    <div className='flex items-center mb-4'>
+                                        {renderStars(orchid.rating)}
+                                        <p className='ml-2 text-gray-500'>{orchid.rating} stars</p>
+                                    </div>
+                                    <p className='text-gray-500 mb-4'>{orchid.description}</p>
+                                    <div className='flex gap-3 mb-4'>
+                                        <span className='bg-blue-100 text-blue-800 text-sm font-semibold mr-2 px-2.5 py-0.5 rounded'>{orchid.color}</span>
+                                        <span className='bg-blue-100 text-blue-800 text-sm font-semibold mr-2 px-2.5 py-0.5 rounded'>{orchid.origin}</span>
+                                    </div>
+                                </div>
+                                <div className='flex flex-wrap gap-4'>
+                                    <button
+                                        onClick={handleBack}
+                                        className='bg-indigo-600 text-white px-4 py-2 rounded-lg'
+                                    >
+                                        Back to Products
+                                    </button>
+                                    <a
+                                        href={orchid.image}
+                                        target='_blank'
+                                        rel='noopener noreferrer'
+                                        className='bg-gray-200 text-gray-800 px-4 py-2 rounded-lg'
+                                    >
+                                        Read More
+                                    </a>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </Layout>

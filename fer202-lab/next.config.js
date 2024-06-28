@@ -2,24 +2,13 @@
 const nextConfig = {
   reactStrictMode: true,
   images: {
-    domains: [
-      'i.pinimg.com',
-      'www.pumpkinbeth.com',
-      'pantropica.nl',
-      'img.freepik.com',
-      'images.fpt.shop',
-      'encrypted-tbn0.gstatic.com',
-      'www.akerne-orchids.com',
-      'siborchid.com',
-      'blogger.googleusercontent.com',
-      'orchidrepublic.com',
-      "www.orchids.org"
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: '**', // This allows all domains
+      },
     ],
   },
-}
+};
 
-const withImages = require('next-images')
-module.exports = withImages()
-
-
-module.exports = nextConfig
+module.exports = nextConfig;

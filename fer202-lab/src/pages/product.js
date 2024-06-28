@@ -15,14 +15,14 @@ const Orchids = ({ id, isSpecial, name, image, category, rating, color, country 
         router.push(`/product/${id}`);
     }
     return (
-        <article className="max-w-sm bg-white px-6 pt-6 pb-2 rounded-xl shadow-lg transform hover:scale-105 transition duration-500">
+        <article className="max-w-sm bg-white px-6 pt-4 pb-2 rounded-xl shadow-lg transform hover:scale-105 transition duration-500">
             <h3 className="mb-3 text-xl font-bold text-indigo-600">{category}</h3>
             <div className="relative w-full h-64">
                 <Link href={image} target="_blank" passHref>
                     <div className="relative w-full h-full">
                         <Image src={image} layout="fill" objectFit="cover" alt={name} className="rounded-xl" />
                         {isSpecial && (
-                            <p className="absolute top-0 left-0 bg-yellow-300 text-gray-800 font-semibold py-1 px-3 rounded-br-lg rounded-tl-lg">
+                            <p className="absolute top-0 left-0 bg-yellow-300 text-gray-800 font-semibold py-2 px-3 rounded-br-lg rounded-tl-lg">
                                 Special
                             </p>
                         )}
@@ -57,7 +57,7 @@ const Orchids = ({ id, isSpecial, name, image, category, rating, color, country 
                     <p>{country}</p>
                 </div>
                 <button className="mt-4 text-xl w-full text-white bg-indigo-600 py-2 rounded-xl shadow-lg"
-                onClick={handleClick}
+                    onClick={handleClick}
                 >Details</button>
             </div>
         </article>
@@ -79,6 +79,7 @@ const product = () => {
 
         getOrchids();
     }, []);
+
     return (
         <>
             <Head>
@@ -88,11 +89,11 @@ const product = () => {
             <main className='w-full mb-16 flex flex-col items-center justify-center'>
                 <Layout className='pt-16'>
                     <AnimatedText text="Typical Orchids"
-                        className='mb-10'
+                        className='mb-10 lg:!text-7xl sm:!text-6xl xs:!text-4xl sm:mb-8'
                     />
-                    <div className='grid grid-cols-12 gap-24'>
+                    <div className='grid grid-cols-3 sm:grid-cols-1 lg:grid-cols-2 xl:grid-cols-2 gap-24 xl:gap-16'>
                         {orchids.map((orchid, index) => (
-                            <div className='col-span-4 justify-center' key={index}>
+                            <div key={index}>
                                 <Orchids
                                     id={orchid.id}
                                     isSpecial={orchid.isSpecial}
