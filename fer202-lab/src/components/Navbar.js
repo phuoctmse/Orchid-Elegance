@@ -6,7 +6,7 @@ import Logo from './Logo';
 import Profile, { MoonIcon, SunIcon } from './Icons';
 import useThemeSwitcher from './hook/useThemeSwitcher';
 import signInWithGoogle from './Login';
-import { auth } from '../config/firebase'; // Import auth from your firebase config
+import { auth } from '../config/firebase';
 import { signOut } from 'firebase/auth';
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';

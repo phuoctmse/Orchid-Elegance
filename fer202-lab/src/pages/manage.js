@@ -93,7 +93,7 @@ const Manage = () => {
                 <title>Manage</title>
                 <meta name="description" content="Manage page" />
             </Head>
-            <main className="bg-dark text-light dark:bg-light dark:text-dark min-h-screen p-4">
+            <main className="bg-gray-100 text-gray-900 dark:bg-gray-900 dark:text-gray-100 min-h-screen p-4">
                 <div className="container mx-auto">
                     <div className="overflow-x-auto">
                         <div className="flex justify-between items-center">
@@ -104,7 +104,7 @@ const Manage = () => {
                                 Add Product
                             </button>
                         </div>
-                        <table className="table w-full bg-gray-800">
+                        <table className="table w-full bg-gray-100 dark:bg-gray-800">
                             <thead>
                                 <tr>
                                     <th>
@@ -123,7 +123,7 @@ const Manage = () => {
                             </thead>
                             <tbody>
                                 {products.map((product) => (
-                                    <tr className="hover border-b border-gray-700" key={product.id}>
+                                    <tr className="hover:bg-gray-200 dark:hover:bg-gray-700 border-b border-gray-300 dark:border-gray-700" key={product.id}>
                                         <th>
                                             <label>
                                                 <input type="checkbox" className="checkbox" />
@@ -153,7 +153,7 @@ const Manage = () => {
                                         <td>{product.origin}</td>
                                         <td className="flex items-center">
                                             <span className="text-yellow-400">{"★".repeat(product.rating)}</span>
-                                            <span className="ml-2">{product.rating}.0</span>
+                                            <span className="ml-2">{product.rating}</span>
                                         </td>
                                         <td>
                                             <div className="flex gap-2">
@@ -164,6 +164,7 @@ const Manage = () => {
                                     </tr>
                                 ))}
                             </tbody>
+
                         </table>
                     </div>
                 </div>
@@ -172,7 +173,7 @@ const Manage = () => {
             {/* Add Product Modal */}
             {isAddModalOpen && (
                 <div className="modal modal-open">
-                    <div className="modal-box">
+                    <div className="modal-box bg-gray-100 text-gray-900 dark:bg-gray-800 dark:text-gray-100">
                         <h3 className="font-bold text-lg">Add New Product</h3>
                         <Formik
                             initialValues={{
@@ -194,14 +195,14 @@ const Manage = () => {
                                         type="text"
                                         name="name"
                                         placeholder="Product Name"
-                                        className="input input-bordered w-full mb-2"
+                                        className="input input-bordered w-full mb-2 bg-gray-200 text-gray-900 dark:bg-gray-700 dark:text-gray-100"
                                     />
                                     <ErrorMessage name="name" component="div" className="text-red-600" />
                                     <Field
                                         type="number"
                                         name="rating"
                                         placeholder="Rating"
-                                        className="input input-bordered w-full mb-2"
+                                        className="input input-bordered w-full mb-2 bg-gray-200 text-gray-900 dark:bg-gray-700 dark:text-gray-100"
                                     />
                                     <ErrorMessage name="rating" component="div" className="text-red-600" />
                                     <label>
@@ -216,35 +217,35 @@ const Manage = () => {
                                         type="text"
                                         name="image"
                                         placeholder="Image URL"
-                                        className="input input-bordered w-full mb-2"
+                                        className="input input-bordered w-full mb-2 bg-gray-200 text-gray-900 dark:bg-gray-700 dark:text-gray-100"
                                     />
                                     <ErrorMessage name="image" component="div" className="text-red-600" />
                                     <Field
                                         type="text"
                                         name="color"
                                         placeholder="Color"
-                                        className="input input-bordered w-full mb-2"
+                                        className="input input-bordered w-full mb-2 bg-gray-200 text-gray-900 dark:bg-gray-700 dark:text-gray-100"
                                     />
                                     <ErrorMessage name="color" component="div" className="text-red-600" />
                                     <Field
                                         type="text"
                                         name="origin"
                                         placeholder="Origin"
-                                        className="input input-bordered w-full mb-2"
+                                        className="input input-bordered w-full mb-2 bg-gray-200 text-gray-900 dark:bg-gray-700 dark:text-gray-100"
                                     />
                                     <ErrorMessage name="origin" component="div" className="text-red-600" />
                                     <Field
                                         type="text"
                                         name="category"
                                         placeholder="Category"
-                                        className="input input-bordered w-full mb-2"
+                                        className="input input-bordered w-full mb-2 bg-gray-200 text-gray-900 dark:bg-gray-700 dark:text-gray-100"
                                     />
                                     <ErrorMessage name="category" component="div" className="text-red-600" />
                                     <Field
                                         as="textarea"
                                         name="description"
                                         placeholder="Description"
-                                        className="textarea textarea-bordered w-full mb-2"
+                                        className="textarea textarea-bordered w-full mb-2 bg-gray-200 text-gray-900 dark:bg-gray-700 dark:text-gray-100"
                                     />
                                     <ErrorMessage name="description" component="div" className="text-red-600" />
                                     <div className="modal-action">
@@ -265,7 +266,7 @@ const Manage = () => {
             {/* Edit Product Modal */}
             {isEditModalOpen && (
                 <div className="modal modal-open">
-                    <div className="modal-box">
+                    <div className="modal-box bg-gray-100 text-gray-900 dark:bg-gray-800 dark:text-gray-100">
                         <h3 className="font-bold text-lg">Edit Product</h3>
                         <Formik
                             initialValues={{
@@ -287,14 +288,14 @@ const Manage = () => {
                                         type="text"
                                         name="name"
                                         placeholder="Product Name"
-                                        className="input input-bordered w-full mb-2"
+                                        className="input input-bordered w-full mb-2 bg-gray-200 text-gray-900 dark:bg-gray-700 dark:text-gray-100"
                                     />
                                     <ErrorMessage name="name" component="div" className="text-red-600" />
                                     <Field
                                         type="number"
                                         name="rating"
                                         placeholder="Rating"
-                                        className="input input-bordered w-full mb-2"
+                                        className="input input-bordered w-full mb-2 bg-gray-200 text-gray-900 dark:bg-gray-700 dark:text-gray-100"
                                     />
                                     <ErrorMessage name="rating" component="div" className="text-red-600" />
                                     <label>
@@ -309,35 +310,35 @@ const Manage = () => {
                                         type="text"
                                         name="image"
                                         placeholder="Image URL"
-                                        className="input input-bordered w-full mb-2"
+                                        className="input input-bordered w-full mb-2 bg-gray-200 text-gray-900 dark:bg-gray-700 dark:text-gray-100"
                                     />
                                     <ErrorMessage name="image" component="div" className="text-red-600" />
                                     <Field
                                         type="text"
                                         name="color"
                                         placeholder="Color"
-                                        className="input input-bordered w-full mb-2"
+                                        className="input input-bordered w-full mb-2 bg-gray-200 text-gray-900 dark:bg-gray-700 dark:text-gray-100"
                                     />
                                     <ErrorMessage name="color" component="div" className="text-red-600" />
                                     <Field
                                         type="text"
                                         name="origin"
                                         placeholder="Origin"
-                                        className="input input-bordered w-full mb-2"
+                                        className="input input-bordered w-full mb-2 bg-gray-200 text-gray-900 dark:bg-gray-700 dark:text-gray-100"
                                     />
                                     <ErrorMessage name="origin" component="div" className="text-red-600" />
                                     <Field
                                         type="text"
                                         name="category"
                                         placeholder="Category"
-                                        className="input input-bordered w-full mb-2"
+                                        className="input input-bordered w-full mb-2 bg-gray-200 text-gray-900 dark:bg-gray-700 dark:text-gray-100"
                                     />
                                     <ErrorMessage name="category" component="div" className="text-red-600" />
                                     <Field
                                         as="textarea"
                                         name="description"
                                         placeholder="Description"
-                                        className="textarea textarea-bordered w-full mb-2"
+                                        className="textarea textarea-bordered w-full mb-2 bg-gray-200 text-gray-900 dark:bg-gray-700 dark:text-gray-100"
                                     />
                                     <ErrorMessage name="description" component="div" className="text-red-600" />
                                     <div className="modal-action">
@@ -358,7 +359,7 @@ const Manage = () => {
             {/* Delete Product Modal */}
             {isDeleteModalOpen && (
                 <div className="modal modal-open">
-                    <div className="modal-box">
+                    <div className="modal-box bg-gray-100 text-gray-900 dark:bg-gray-800 dark:text-gray-100">
                         <h3 className="font-bold text-lg">Delete Product</h3>
                         <p className="py-4">Are you sure you want to delete this product?</p>
                         <div className="modal-action">

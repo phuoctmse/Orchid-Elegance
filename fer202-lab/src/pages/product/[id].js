@@ -5,8 +5,6 @@ import Head from 'next/head';
 import Layout from '@/components/Layout';
 import AnimatedText from '@/components/AnimatedText';
 import Image from 'next/image';
-import Link from 'next/link';
-import { GithubIcon } from '@/components/Icons';
 
 const ProductDetail = () => {
     const router = useRouter();
